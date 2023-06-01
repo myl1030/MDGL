@@ -4,7 +4,6 @@ Created on Wed Jul  6 17:25:00 2022
 
 @author: 86178
 """
-
 import torch
 import numpy as np
 import torch.nn as nn

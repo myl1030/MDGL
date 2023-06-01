@@ -5,9 +5,8 @@ Created on Wed Jul  6 17:23:51 2022
 @author: 86178
 """
 
-
 import os
-from Model import *
+from model import *
 import util
 import scipy.io
 import numpy as np
@@ -186,7 +185,7 @@ for k in range(checkpoint['fold'],5):
     # define logging objects
     summary_writer = SummaryWriter(os.path.join('result', 'summary', str(k), 'train'), )
     summary_writer_val = SummaryWriter(os.path.join('result', 'summary', str(k), 'val'), )
-    logger = util.logger.LoggerSTAGIN(5, 2)
+    logger = util.logger.LoggerMDGL(5, 2)
 
     # start training
     for epoch in range(checkpoint['epoch'],40):
@@ -257,7 +256,7 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 # define dataset
 dataset = DatasetASD(k_fold=5)
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=8, shuffle=False, num_workers=0, pin_memory=True)
-logger = util.logger.LoggerSTAGIN(5, 2)
+logger = util.logger.LoggerMDGL(5, 2)
 
 for k in range(5):
 
